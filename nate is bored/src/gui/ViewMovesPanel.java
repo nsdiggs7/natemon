@@ -12,12 +12,9 @@ public class ViewMovesPanel extends JPanel {
         setLayout(new BorderLayout());
         
         //add title
-        JLabel title = new JLabel("VIEW MOVES!!!", SwingConstants.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 48));
-        add(title, BorderLayout.NORTH);
+        add(gui.title("view moves"), BorderLayout.NORTH);
         
         //back panel
-        JPanel backPanel = gui.backPanel("VIEW");
-        add(backPanel, BorderLayout.SOUTH);
+        add(gui.backPanel("VIEW"), BorderLayout.SOUTH);
     }
 }

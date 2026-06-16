@@ -12,18 +12,18 @@ public class HomePanel extends JPanel {
         setLayout(new BorderLayout());
 
         // title at the top
-        JLabel title = new JLabel("Welcome to Natemon!", SwingConstants.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 48));
-        add(title, BorderLayout.NORTH);
+        add(gui.title("Welcome to Natemon!"), BorderLayout.NORTH);
 
         // buttons in the center
         JPanel buttonPanel = new JPanel(new GridLayout(1, 4, 10, 10));
         
+        //create buttons
         JButton playBtn = new JButton("Play");
         JButton createBtn = new JButton("Create");
         JButton viewBtn = new JButton("View");
         JButton editBtn = new JButton("Edit");
-
+        
+        //add buttons to panel
         buttonPanel.add(playBtn);
         buttonPanel.add(createBtn);
         buttonPanel.add(viewBtn);

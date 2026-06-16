@@ -60,4 +60,10 @@ public class NatemonGUI extends JFrame {
     		return backPanel;
     	}
     }
+    
+    public JLabel title(String title) {
+    	JLabel out = new JLabel(title, SwingConstants.CENTER);
+        out.setFont(new Font("Arial", Font.BOLD, 48));
+    	return out;
+    }
 }

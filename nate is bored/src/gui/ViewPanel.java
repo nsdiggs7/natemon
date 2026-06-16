@@ -13,9 +13,7 @@ public class ViewPanel extends JPanel {
         setLayout(new BorderLayout());
         
         //add title
-        JLabel title = new JLabel("VIEW!!!", SwingConstants.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 48));
-        add(title, BorderLayout.NORTH);
+        add(gui.title("view"), BorderLayout.NORTH);
         
         JLabel text = new JLabel("What would you like to view?", SwingConstants.CENTER);
         text.setFont(new Font("Arial", Font.BOLD, 24));
@@ -24,7 +22,6 @@ public class ViewPanel extends JPanel {
         //panel creation
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
         buttonPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JPanel homePanel = gui.backPanel(null);
         
         //button creation
         JButton natemonsBtn = new JButton("Natemons");
@@ -45,7 +42,7 @@ public class ViewPanel extends JPanel {
         
         //add panels to screen
         add(choiceCenterWrapper, BorderLayout.CENTER);
-        add(homePanel, BorderLayout.SOUTH);
+        add(gui.backPanel(null), BorderLayout.SOUTH);
        
         
         //button functionalities

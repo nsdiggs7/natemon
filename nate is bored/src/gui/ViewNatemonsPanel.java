@@ -12,9 +12,7 @@ public class ViewNatemonsPanel extends JPanel {
         setLayout(new BorderLayout());
         
         //add title
-        JLabel title = new JLabel("VIEW NATEMONS!!!", SwingConstants.CENTER);
-        title.setFont(new Font("Arial", Font.BOLD, 48));
-        add(title, BorderLayout.NORTH);
+        add(gui.title("view natemons"), BorderLayout.NORTH);
         
         
         
@@ -30,8 +28,7 @@ public class ViewNatemonsPanel extends JPanel {
         
         
         //back panel
-        JPanel backPanel = gui.backPanel("VIEW");
-        add(backPanel, BorderLayout.SOUTH);
+        add(gui.backPanel("VIEW"), BorderLayout.SOUTH);
     }
     
 }
