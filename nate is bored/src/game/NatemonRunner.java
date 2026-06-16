@@ -49,8 +49,8 @@ public class NatemonRunner {
 		moves.add(grass2);
 		moves.add(grass3);
 		SwingUtilities.invokeLater(() -> new NatemonGUI());
-		//System.out.println("Welcome to Natemon!");
-		//start();
+//		System.out.println("Welcome to Natemon!");
+//		start();
 		
 	}
 	

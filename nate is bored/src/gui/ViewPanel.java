@@ -24,17 +24,15 @@ public class ViewPanel extends JPanel {
         //panel creation
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
         buttonPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-        JPanel homePanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); //right aligned flow layout
+        JPanel homePanel = gui.backPanel(null);
         
         //button creation
-        JButton homeBtn = new JButton("Home");
         JButton natemonsBtn = new JButton("Natemons");
         JButton movesBtn = new JButton("Moves");
         
         //add buttons to panel
         buttonPanel.add(natemonsBtn);
         buttonPanel.add(movesBtn);
-        homePanel.add(homeBtn);
         
         // center wrapper for button panel
         JPanel choiceCenterWrapper = new JPanel();
@@ -51,7 +49,6 @@ public class ViewPanel extends JPanel {
        
         
         //button functionalities
-        homeBtn.addActionListener(e -> gui.showScreen("HOME"));
         natemonsBtn.addActionListener(e -> gui.showScreen("VIEWNATEMONS"));
         movesBtn.addActionListener(e -> gui.showScreen("VIEWMOVES"));
         

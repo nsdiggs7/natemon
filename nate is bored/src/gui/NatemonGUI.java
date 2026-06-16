@@ -42,4 +42,22 @@ public class NatemonGUI extends JFrame {
     public void showScreen(String name) {
         cards.show(container, name);
     }
+    
+    public JPanel backPanel(String backScreen) {
+    	JPanel backPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+    	JButton homeBtn = new JButton("Home");
+    	JButton backBtn;
+    	if(!(backScreen == null)) {
+    		backBtn = new JButton("Back");
+    		backPanel.add(homeBtn);
+            backPanel.add(backBtn);
+            homeBtn.addActionListener(e -> showScreen("HOME"));
+            backBtn.addActionListener(e -> showScreen(backScreen));
+            return backPanel;
+    	}else {
+    		backPanel.add(homeBtn);
+    		homeBtn.addActionListener(e -> showScreen("HOME"));
+    		return backPanel;
+    	}
+    }
 }
