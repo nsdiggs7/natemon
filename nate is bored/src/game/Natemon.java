@@ -1,3 +1,4 @@
+package game;
 import java.util.Random;
 public class Natemon {
 	private int hp;
@@ -23,7 +24,6 @@ public class Natemon {
 		Random rand  = new Random();
 		String type = "";
 		int t = rand.nextInt(3);
-		
 		if(t == 0) type = "fire";
 		else if(t == 1) type = "water";
 		else if(t == 2) type = "grass";

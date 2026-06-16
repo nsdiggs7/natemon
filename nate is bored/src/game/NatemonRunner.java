@@ -1,6 +1,12 @@
- import java.util.Scanner;
+package game;
+//to add: enemy heals, new types
+import java.util.Scanner;
+import javax.swing.*;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
+import gui.NatemonGUI;
 public class NatemonRunner {
 	public static ArrayList<Natemon> natemons = new ArrayList<>();
 	public static ArrayList<Natemon> playerNatemons = new ArrayList<>();
@@ -13,7 +19,9 @@ public class NatemonRunner {
 	public static int enemyPotions = 3;
 	public static boolean gameOver = false;
 	
+	
 	public static void main(String[] args) {
+		
 		Natemon firemon = new Natemon("firemon", "fire", 150);
 		Natemon watermon = new Natemon("watermon", "water", 150);
 		Natemon grassmon = new Natemon("grassmon", "grass", 150);
@@ -40,8 +48,10 @@ public class NatemonRunner {
 		moves.add(grass1);
 		moves.add(grass2);
 		moves.add(grass3);
-		System.out.println("Welcome to Natemon!");
-		start();
+		SwingUtilities.invokeLater(() -> new NatemonGUI());
+		//System.out.println("Welcome to Natemon!");
+		//start();
+		
 	}
 	
 	static void start() {
