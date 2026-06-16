@@ -39,8 +39,6 @@ public class ViewPanel extends JPanel {
         // center wrapper for button panel
         JPanel choiceCenterWrapper = new JPanel();
         choiceCenterWrapper.setLayout(new BoxLayout(choiceCenterWrapper, BoxLayout.Y_AXIS));
-//	    choiceCenterWrapper.add(text);
-//	    choiceCenterWrapper.add(buttonPanel);
         choiceCenterWrapper.add(Box.createVerticalGlue());  // pushes block to center
         choiceCenterWrapper.add(text);
         choiceCenterWrapper.add(Box.createRigidArea(new Dimension(0, 12))); // small gap
@@ -54,7 +52,10 @@ public class ViewPanel extends JPanel {
         
         //button functionalities
         homeBtn.addActionListener(e -> gui.showScreen("HOME"));
+        natemonsBtn.addActionListener(e -> gui.showScreen("VIEWNATEMONS"));
+        movesBtn.addActionListener(e -> gui.showScreen("VIEWMOVES"));
         
         
     }
+    
 }
