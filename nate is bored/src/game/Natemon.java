@@ -4,21 +4,21 @@ import java.util.Random;
 public class Natemon {
 	private int hp;
 	private int maxHp;
-	private String type; // fire water grass
+	private Type type; // fire water grass
 	private String name;
 	private boolean alive = true; // true = alive, false = dead
 	
 	public Natemon(String name, String type, int hp) {
 		this.name = name;
 		this.hp = hp;
-		this.type = type.toLowerCase();
+		this.type = Type.valueOf(type);
 		maxHp = hp;
 	}
 	
 	public Natemon() {
 		name = "Little Natemon";
 		hp = 100;
-		type = randomType();
+		type = Type.valueOf(randomType());
 	}
 	
 	public String randomType() {
@@ -37,7 +37,7 @@ public class Natemon {
 	}
 	
 	public String getType() {
-		return type;
+		return type.toString();
 	}
 	
 	public String getName() {
@@ -50,7 +50,7 @@ public class Natemon {
 	
 	public void setHp(int hp) {
 		this.hp = hp;
-		if(this.hp < 0) {
+		if(this.hp <= 0) {
 			this.hp = 0;
 			alive = false;
 		}
@@ -58,7 +58,7 @@ public class Natemon {
 	}
 	
 	public void setType(String type) {
-		this.type = type.toLowerCase();
+		this.type = Type.valueOf(type);
 	}
 	
 	public void setName(String name) {
@@ -67,7 +67,7 @@ public class Natemon {
 	
 	
 	public String toString() {
-		return "Natemon: "+name+"\nType: "+type+"\nHealth: "+hp;
+		return "Natemon: "+name+"\nType: "+type.toString()+"\nHealth: "+hp;
 	}
 	
 	
