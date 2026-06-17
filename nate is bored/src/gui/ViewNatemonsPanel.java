@@ -16,13 +16,13 @@ public class ViewNatemonsPanel extends JPanel {
         add(gui.title("view natemons"), BorderLayout.NORTH);
         
         //panel for all natemon boxes
-        JPanel boxPanel = new JPanel(new GridLayout(1, 3, 10, 10));
+        JPanel boxPanel = new JPanel(new GridLayout(2, 0, 10, 10));
         
         //create box for each natemon
         for(game.Natemon natemon : game.NatemonRunner.natemons) {
         	//create box
         	JPanel box = new JPanel();
-            box.setPreferredSize(new Dimension(100, 100));
+            box.setPreferredSize(new Dimension(125, 125));
             box.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
             box.setLayout(new BoxLayout(box, BoxLayout.Y_AXIS));
             
@@ -57,6 +57,7 @@ public class ViewNatemonsPanel extends JPanel {
         JPanel centerWrapper = new JPanel(new GridBagLayout());
         centerWrapper.add(boxPanel);
         
+        //add centerWrapper to screen
         add(centerWrapper, BorderLayout.CENTER);
         
         

@@ -26,6 +26,7 @@ public class NatemonRunner {
 		Natemon watermon = new Natemon("watermon", "water", 150);
 		Natemon grassmon = new Natemon("grassmon", "grass", 150);
 		
+		
 		Move fire1 = new Move("candle", "fire", 10, 1);
 		Move fire2 = new Move("blowtorch", "fire", 25, 2);
 		Move fire3 = new Move("explosion", "fire", 50, 3);
@@ -38,7 +39,7 @@ public class NatemonRunner {
 		
 		natemons.add(firemon);
 		natemons.add(watermon);
-		natemons.add(grassmon);
+		natemons.add(grassmon);		
 		moves.add(fire1);
 		moves.add(fire2);
 		moves.add(fire3);
@@ -48,6 +49,14 @@ public class NatemonRunner {
 		moves.add(grass1);
 		moves.add(grass2);
 		moves.add(grass3);
+		
+//		//test objects
+//		Natemon grassmon2 = new Natemon("grassmon2", "grass", 150);
+//		Natemon grassmon3 = new Natemon("grassmon2", "grass", 150);
+//		natemons.add(grassmon2);
+//		natemons.add(grassmon3);
+		
+		
 		SwingUtilities.invokeLater(() -> new NatemonGUI());
 //		System.out.println("Welcome to Natemon!");
 //		start();
