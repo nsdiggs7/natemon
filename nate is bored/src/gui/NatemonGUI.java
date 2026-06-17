@@ -12,6 +12,7 @@ public class NatemonGUI extends JFrame {
     public ViewPanel viewPanel;
     public ViewNatemonsPanel viewNatemonsPanel;
     public ViewMovesPanel viewMovesPanel;
+    public CreatePanel createPanel;
     
     public NatemonGUI() {
         setTitle("Natemon");
@@ -26,12 +27,14 @@ public class NatemonGUI extends JFrame {
         viewPanel = new ViewPanel(this);
         viewNatemonsPanel = new ViewNatemonsPanel(this);
         viewMovesPanel = new ViewMovesPanel(this);
+        createPanel= new CreatePanel(this);
         
         //add screens to container
         container.add(homePanel, "HOME");
         container.add(viewPanel, "VIEW");
         container.add(viewNatemonsPanel, "VIEWNATEMONS");
         container.add(viewMovesPanel, "VIEWMOVES");
+        container.add(createPanel, "CREATE");
         add(container);
         setVisible(true);
 
@@ -40,6 +43,9 @@ public class NatemonGUI extends JFrame {
     
     //change screen function
     public void showScreen(String name) {
+    	if (name.equals("")) {
+    		JOptionPane.showMessageDialog(this, "Nothing to show yet...", "Error", JOptionPane.ERROR_MESSAGE);
+    	}
         cards.show(container, name);
     }
     
@@ -49,8 +55,8 @@ public class NatemonGUI extends JFrame {
     	JButton backBtn;
     	if(!(backScreen == null)) {
     		backBtn = new JButton("Back");
-    		backPanel.add(homeBtn);
-            backPanel.add(backBtn);
+    		backPanel.add(backBtn);
+            backPanel.add(homeBtn);
             homeBtn.addActionListener(e -> showScreen("HOME"));
             backBtn.addActionListener(e -> showScreen(backScreen));
             return backPanel;

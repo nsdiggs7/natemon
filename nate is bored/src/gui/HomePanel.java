@@ -35,9 +35,9 @@ public class HomePanel extends JPanel {
         add(centerWrapper, BorderLayout.CENTER);
 
         // wire up buttons
-        playBtn.addActionListener(e -> gui.showScreen("TEAM_SELECT"));
+        playBtn.addActionListener(e -> gui.showScreen(""));
         createBtn.addActionListener(e -> gui.showScreen("CREATE"));
         viewBtn.addActionListener(e -> gui.showScreen("VIEW"));
-        editBtn.addActionListener(e -> gui.showScreen("EDIT"));
+        editBtn.addActionListener(e -> gui.showScreen(""));
     }
 }

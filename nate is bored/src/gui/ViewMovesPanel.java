@@ -31,7 +31,7 @@ public class ViewMovesPanel extends JPanel {
         	int dmg  = move.getDamage();
         	
         	//create labels
-        	JLabel nameLabel = new JLabel("<html><div style='text-align: center; width: 120px;'>" + name + "</div></html>");
+        	JLabel nameLabel = new JLabel(name);
         	JLabel typeLabel = new JLabel("Type: "+ type);
         	JLabel hpLabel = new JLabel("DMG: " + Integer.toString(dmg));
         	
