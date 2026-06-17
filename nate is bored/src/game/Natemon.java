@@ -1,3 +1,4 @@
+//to add: sprites???
 package game;
 import java.util.Random;
 public class Natemon {

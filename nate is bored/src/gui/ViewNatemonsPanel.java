@@ -1,4 +1,4 @@
-//to add: in depth info on press
+//to add: in depth info on press, sort by type hp etc
 package gui;
 
 import javax.swing.*;
