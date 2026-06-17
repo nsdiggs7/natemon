@@ -15,7 +15,7 @@ public class HomePanel extends JPanel {
         add(gui.title("Welcome to Natemon!"), BorderLayout.NORTH);
 
         // buttons in the center
-        JPanel buttonPanel = new JPanel(new GridLayout(1, 4, 10, 10));
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 4, 10, 10)); //rows, cols
         
         //create buttons
         JButton playBtn = new JButton("Play");
