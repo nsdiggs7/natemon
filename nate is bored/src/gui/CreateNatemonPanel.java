@@ -11,7 +11,7 @@ public class CreateNatemonPanel extends JPanel {
 		this.gui = gui;
         setLayout(new BorderLayout());
         
-        NatemonRunner.viewNatemons();
+        //NatemonRunner.viewNatemons();
         
         //add title
         add(gui.title("create natemons"), BorderLayout.NORTH);        
@@ -84,7 +84,7 @@ public class CreateNatemonPanel extends JPanel {
         	typeField.setText("");
         	hpField.setText("");
         	
-        	NatemonRunner.viewNatemons();
+        	new Timer(3000, ev -> success.setText("")).start();
         });
         
         //back panel

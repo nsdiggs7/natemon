@@ -49,6 +49,11 @@ public class NatemonGUI extends JFrame {
     	if (name.equals("")) {
     		JOptionPane.showMessageDialog(this, "Nothing to show yet...", "Error", JOptionPane.ERROR_MESSAGE);
     	}
+    	
+    	if (name.equals("VIEWNATEMONS")){
+    		viewNatemonsPanel.display();
+    	}
+    	
         cards.show(container, name);
     }
     

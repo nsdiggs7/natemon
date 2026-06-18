@@ -11,12 +11,22 @@ public class ViewNatemonsPanel extends JPanel {
     public ViewNatemonsPanel(NatemonGUI gui) {
         this.gui = gui;
         setLayout(new BorderLayout());
-        
-        //add title
+        display();       
+    }
+    
+    //refresh every time panel is opened
+    public void display() {
+    	removeAll();
+    	
+    	//add title + back panel
         add(gui.title("view natemons"), BorderLayout.NORTH);
+        add(gui.backPanel("VIEW"), BorderLayout.SOUTH);	
+    	
+        //number of columns - 5 or less
+        int cols = NatemonRunner.natemons.size() > 5 ? 5 : NatemonRunner.natemons.size();
         
-        //panel for all natemon boxes
-        JPanel boxPanel = new JPanel(new GridLayout(0, 3, 10, 10));
+    	//panel for all natemon boxes
+        JPanel boxPanel = new JPanel(new GridLayout(0, cols, 10, 10));
         
         //create box for each natemon
         for(Natemon natemon : NatemonRunner.natemons) {
@@ -50,19 +60,18 @@ public class ViewNatemonsPanel extends JPanel {
         	box.add(nameLabel);
         	box.add(typeLabel);
         	box.add(hpLabel);
-        	boxPanel.add(box);        	
+        	boxPanel.add(box); 
         }
-                     
-       //center boxPanel 
+        
+        //center boxPanel 
         JPanel centerWrapper = new JPanel(new GridBagLayout());
         centerWrapper.add(boxPanel);
         
         //add centerWrapper to screen
         add(centerWrapper, BorderLayout.CENTER);
         
-        
-        //back panel
-        add(gui.backPanel("VIEW"), BorderLayout.SOUTH);
+        revalidate();
+        repaint();
     }
     
 }
