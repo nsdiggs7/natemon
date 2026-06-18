@@ -1,28 +1,40 @@
-//to add: in depth info on press, sort by type hp etc
 package gui;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-import game.*;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-public class ViewNatemonsPanel extends JPanel {
+import game.Natemon;
+import game.NatemonRunner;
+
+public class ChooseEditNatemonPanel extends JPanel {
 	private NatemonGUI gui;
-
-    public ViewNatemonsPanel(NatemonGUI gui) {
-        this.gui = gui;
+	
+	public ChooseEditNatemonPanel (NatemonGUI gui) {
+		this.gui = gui;
         setLayout(new BorderLayout());
-        display();       
-    }
-    
-    //refresh every time panel is opened
+        display();    
+	}
+	
+	//refresh every time panel is opened
     public void display() {
     	removeAll();
     	
     	//add title + back panel
-        add(gui.title("view natemons"), BorderLayout.NORTH);
-        add(gui.backPanel("VIEW"), BorderLayout.SOUTH);	
+        add(gui.title("select natemon to edit"), BorderLayout.NORTH);
+        add(gui.backPanel("EDIT"), BorderLayout.SOUTH);	
+       
     	
         //number of columns - 5 or less
         int cols = NatemonRunner.natemons.size() > 5 ? 5 : NatemonRunner.natemons.size();
@@ -83,5 +95,4 @@ public class ViewNatemonsPanel extends JPanel {
         revalidate();
         repaint();
     }
-    
 }

@@ -38,6 +38,6 @@ public class HomePanel extends JPanel {
         playBtn.addActionListener(e -> gui.showScreen(""));
         createBtn.addActionListener(e -> gui.showScreen("CREATE"));
         viewBtn.addActionListener(e -> gui.showScreen("VIEW"));
-        editBtn.addActionListener(e -> gui.showScreen(""));
+        editBtn.addActionListener(e -> gui.showScreen("EDIT"));
     }
 }
