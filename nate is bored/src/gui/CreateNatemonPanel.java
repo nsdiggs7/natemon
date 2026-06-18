@@ -11,8 +11,6 @@ public class CreateNatemonPanel extends JPanel {
 		this.gui = gui;
         setLayout(new BorderLayout());
         
-        //NatemonRunner.viewNatemons();
-        
         //add title
         add(gui.title("create natemons"), BorderLayout.NORTH);        
         

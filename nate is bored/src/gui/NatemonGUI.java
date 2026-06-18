@@ -57,6 +57,10 @@ public class NatemonGUI extends JFrame {
     		viewNatemonsPanel.display();
     	}
     	
+    	if (name.equals("VIEWMOVES")){
+    		viewMovesPanel.display();
+    	}
+    	
         cards.show(container, name);
     }
     

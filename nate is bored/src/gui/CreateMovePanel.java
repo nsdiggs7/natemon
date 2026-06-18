@@ -11,8 +11,6 @@ private NatemonGUI gui;
 		this.gui = gui;
         setLayout(new BorderLayout());
         
-        //NatemonRunner.viewNatemons();
-        
         //add title
         add(gui.title("create moves"), BorderLayout.NORTH);        
         
