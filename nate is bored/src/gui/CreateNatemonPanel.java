@@ -69,22 +69,32 @@ public class CreateNatemonPanel extends JPanel {
         createBtn.addActionListener(e -> {
         	//get info from text fields
         	String name = nameField.getText().trim();
-        	String type = typeField.getText().trim().toLowerCase();
-        	int hp = Integer.parseInt(hpField.getText().trim());
+        	String typeText = typeField.getText().trim().toLowerCase();
+        	int hp;
         	
         	//create natemon
-        	Natemon n = new Natemon(name, type, hp);
-        	NatemonRunner.natemons.add(n);
-        	
-        	//write success
-        	success.setText(name + " was created!");
+        	try {
+        		//check for valid type
+        		hp = Integer.parseInt(hpField.getText().trim());
+        		Type type = Type.valueOf(typeText);
+        		
+        		Natemon n = new Natemon(name, typeText, hp);
+        		NatemonRunner.natemons.add(n);
+        		
+        		//write success
+            	success.setText(name + " was created!");
+	
+        	} catch (IllegalArgumentException err) {
+        		success.setText("Invalid type or hp entered");
+        	}
         	
         	//reset text fields
         	nameField.setText("");
         	typeField.setText("");
         	hpField.setText("");
         	
-        	new Timer(3000, ev -> success.setText("")).start();
+        	//success test clears after 1.5 seconds
+        	new Timer(1500, ev -> success.setText("")).start();
         });
         
         //back panel

@@ -9,6 +9,10 @@ public class Natemon {
 	private boolean alive = true; // true = alive, false = dead
 	
 	public Natemon(String name, String type, int hp) {
+		if (hp <= 0) {
+			throw new IllegalArgumentException("negative hp error");
+		}
+		
 		this.name = name;
 		this.hp = hp;
 		this.type = Type.valueOf(type);
