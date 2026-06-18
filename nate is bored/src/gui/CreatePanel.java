@@ -50,7 +50,7 @@ public class CreatePanel extends JPanel{
         
         //button functionalities
         natemonBtn.addActionListener(e -> gui.showScreen("CREATENATEMON"));
-        moveBtn.addActionListener(e -> gui.showScreen(""));
+        moveBtn.addActionListener(e -> gui.showScreen("CREATEMOVE"));
         
         
     }

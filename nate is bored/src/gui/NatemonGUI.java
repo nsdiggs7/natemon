@@ -14,6 +14,7 @@ public class NatemonGUI extends JFrame {
     public ViewMovesPanel viewMovesPanel;
     public CreatePanel createPanel;
     public CreateNatemonPanel createNatemonPanel;
+    public CreateMovePanel createMovePanel;
     
     public NatemonGUI() {
         setTitle("Natemon");
@@ -30,6 +31,7 @@ public class NatemonGUI extends JFrame {
         viewMovesPanel = new ViewMovesPanel(this);
         createPanel= new CreatePanel(this);
         createNatemonPanel= new CreateNatemonPanel(this);
+        createMovePanel= new CreateMovePanel(this);
         
         //add screens to container
         container.add(homePanel, "HOME");
@@ -38,6 +40,7 @@ public class NatemonGUI extends JFrame {
         container.add(viewMovesPanel, "VIEWMOVES");
         container.add(createPanel, "CREATE");
         container.add(createNatemonPanel, "CREATENATEMON");
+        container.add(createMovePanel, "CREATEMOVE");
         add(container);
         setVisible(true);
 
