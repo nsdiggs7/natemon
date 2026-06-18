@@ -55,7 +55,7 @@ public class EditPanel extends JPanel {
         
         //button functionalities
         natemonBtn.addActionListener(e -> gui.showScreen("CHOOSEEDITNATEMON"));
-        moveBtn.addActionListener(e -> gui.showScreen(""));
+        moveBtn.addActionListener(e -> gui.showScreen("CHOOSEEDITMOVE"));
         
         
     }

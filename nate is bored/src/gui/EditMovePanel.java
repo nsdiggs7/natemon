@@ -1,46 +1,41 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-
 import javax.swing.*;
 
-import game.Natemon;
-import game.NatemonRunner;
-import game.Type;
+import game.*;
 
-public class EditNatemonPanel extends JPanel {
+import java.awt.*;
+
+public class EditMovePanel extends JPanel {
 	private NatemonGUI gui;
-	private Natemon natemon;
+	private Move move;
 	
-	public EditNatemonPanel(NatemonGUI gui) {
+	public EditMovePanel(NatemonGUI gui) {
 		this.gui = gui;
         setLayout(new BorderLayout());
 	}
 	
-	public void setNatemon(Natemon natemon) {
-		this.natemon = natemon;
+	public void setMove(Move move) {
+		this.move = move;
 		display();
 	}
 	
 	public void display() {
 		//add title
-        add(gui.title("edit " + natemon.getName()), BorderLayout.NORTH);        
+        add(gui.title("edit "+ move.getName()), BorderLayout.NORTH);        
         
         //create form panel
-        JPanel formPanel = new JPanel(new GridLayout(3, 2)); 
+        JPanel formPanel = new JPanel(new GridLayout(4, 2)); 
 
         //create labels and text fields
         JLabel nameLabel = new JLabel("Name:");
         JTextField nameField = new JTextField(10);
         JLabel typeLabel = new JLabel("Type:");
         JTextField typeField = new JTextField(10);
-        JLabel hpLabel = new JLabel("HP:");
-        JTextField hpField = new JTextField(5);
+        JLabel dmgLabel = new JLabel("Damage:");
+        JTextField dmgField = new JTextField(5);
+        JLabel cdLabel = new JLabel("Cooldown:");
+        JTextField cdField = new JTextField(5);
         JLabel success = new JLabel("");
         
         //create create button
@@ -51,8 +46,10 @@ public class EditNatemonPanel extends JPanel {
         formPanel.add(nameField);
         formPanel.add(typeLabel);
         formPanel.add(typeField);
-        formPanel.add(hpLabel);
-        formPanel.add(hpField);
+        formPanel.add(dmgLabel);
+        formPanel.add(dmgField);
+        formPanel.add(cdLabel);
+        formPanel.add(cdField);
 
         //create wrappers 
         JPanel formWrapper = new JPanel(new FlowLayout(FlowLayout.CENTER));
@@ -82,41 +79,39 @@ public class EditNatemonPanel extends JPanel {
        
         //createbtn functionality
         createBtn.addActionListener(e -> {
-        	
         	//get info from text fields
         	String name = nameField.getText().trim();
         	String typeText = typeField.getText().trim().toLowerCase();
-        	int hp;
+        	int dmg, cd;
         	
-        	//create natemon
+        	//create move
         	try {
         		//check for valid type
-        		hp = Integer.parseInt(hpField.getText().trim());
+        		dmg = Integer.parseInt(dmgField.getText().trim());
+        		cd = Integer.parseInt(cdField.getText().trim());
         		Type type = Type.valueOf(typeText);
         		
-        		natemon.setName(name);
-        		natemon.setType(typeText);
-        		natemon.setHp(hp);
-        		
+        		Move m = new Move(name, typeText, dmg, cd);
+        		NatemonRunner.moves.add(m);
         		
         		//write success
             	success.setText(name + " was edited!");
 	
         	} catch (IllegalArgumentException err) {
-        		success.setText("Invalid type or hp entered");
+        		success.setText("Invalid type, damage, or cooldown entered");
         	}
         	
         	//reset text fields
         	nameField.setText("");
         	typeField.setText("");
-        	hpField.setText("");
+        	dmgField.setText("");
+        	cdField.setText("");
         	
         	//success test clears after 1.5 seconds
         	new Timer(1500, ev -> success.setText("")).start();
         });
         
         //back panel
-        add(gui.backPanel("CHOOSEEDITNATEMON"), BorderLayout.SOUTH);
-		
+        add(gui.backPanel("CHOOSEEDITMOVE"), BorderLayout.SOUTH);
 	}
 }

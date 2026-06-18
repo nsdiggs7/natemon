@@ -79,6 +79,7 @@ public class ChooseEditNatemonPanel extends JPanel {
         	//to description
         	box.addMouseListener(new MouseAdapter() {
         		public void mousePressed(MouseEvent e) {
+        			//set natemon and change screen
         	        gui.editNatemonPanel.setNatemon(natemon);
         	        gui.editNatemonPanel.display();
         	        gui.showScreen("EDITNATEMON");

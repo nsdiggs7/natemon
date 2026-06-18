@@ -1,26 +1,30 @@
-//to add: in depth info on press, sort by type hp etc
 package gui;
 
-import javax.swing.*;
 import java.awt.*;
-import game.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class ViewMovesPanel extends JPanel {
+import javax.swing.*;
+
+import game.Move;
+import game.Natemon;
+import game.NatemonRunner;
+
+public class ChooseEditMovePanel extends JPanel {
 	private NatemonGUI gui;
-
-    public ViewMovesPanel(NatemonGUI gui) {
-        this.gui = gui;
-        setLayout(new BorderLayout());
-        
-        display();
-    }
-    
-    public void display() {
+	
+	public ChooseEditMovePanel(NatemonGUI gui) {
+		this.gui = gui;
+		setLayout(new BorderLayout());
+		display();
+	}
+	
+	public void display() {
     	removeAll();
     	
         //add title + back panel
-        add(gui.title("view moves"), BorderLayout.NORTH);
-        add(gui.backPanel("VIEW"), BorderLayout.SOUTH); 
+        add(gui.title("select move to edit"), BorderLayout.NORTH);
+        add(gui.backPanel("EDIT"), BorderLayout.SOUTH); 
         
       //panel for all move boxes
         JPanel boxPanel = new JPanel(new GridLayout(0, 5, 10, 10));
@@ -62,7 +66,17 @@ public class ViewMovesPanel extends JPanel {
         	box.add(typeLabel);
         	box.add(dmgLabel);
         	box.add(cdLabel);
-        	boxPanel.add(box);        	
+        	boxPanel.add(box); 
+        	
+        	//to description
+        	box.addMouseListener(new MouseAdapter() {
+        		public void mousePressed(MouseEvent e) {
+        			//set move and change screen
+        	        gui.editMovePanel.setMove(move);
+        	        gui.editMovePanel.display();
+        	        gui.showScreen("EDITMOVE");
+        	    }
+        	});
         }
                      
        //center boxPanel 
@@ -74,5 +88,6 @@ public class ViewMovesPanel extends JPanel {
     	  	
     	revalidate();
     	repaint();
-    }
-}
+    
+	}
+ }
