@@ -3,7 +3,7 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import game.NatemonRunner;
+import game.*;
 
 public class ViewMovesPanel extends JPanel {
 	private NatemonGUI gui;
@@ -16,10 +16,10 @@ public class ViewMovesPanel extends JPanel {
         add(gui.title("view moves"), BorderLayout.NORTH);
         
       //panel for all move boxes
-        JPanel boxPanel = new JPanel(new GridLayout(2, 0, 10, 10));
+        JPanel boxPanel = new JPanel(new GridLayout(0, 3, 10, 10));
         
         //create box for each move
-        for(game.Move move : game.NatemonRunner.moves) {
+        for(Move move : NatemonRunner.moves) {
         	//create box
         	JPanel box = new JPanel();
             box.setPreferredSize(new Dimension(125, 125));

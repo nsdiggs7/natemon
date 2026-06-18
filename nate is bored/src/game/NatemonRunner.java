@@ -519,7 +519,7 @@ public class NatemonRunner {
 		scan.close();
 	}
 	
-	static void viewNatemons() {
+	public static void viewNatemons() {
 		String output = "\n";
 		for(int i = 0; i < natemons.size(); i++) {
 			output += natemons.get(i).toString();
