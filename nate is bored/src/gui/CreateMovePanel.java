@@ -88,13 +88,14 @@ private NatemonGUI gui;
             	success.setText(name + " was created!");
 	
         	} catch (IllegalArgumentException err) {
-        		success.setText("Invalid type or hp entered");
+        		success.setText("Invalid type, damage, or cooldown entered");
         	}
         	
         	//reset text fields
         	nameField.setText("");
         	typeField.setText("");
         	dmgField.setText("");
+        	cdField.setText("");
         	
         	//success test clears after 1.5 seconds
         	new Timer(1500, ev -> success.setText("")).start();

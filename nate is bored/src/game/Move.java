@@ -7,6 +7,10 @@ public class Move {
 	private String name;
 	
 	public Move(String name, String type, int damage, int cooldown) {
+		if(cooldown < 0 || damage <= 0) {
+			throw new IllegalArgumentException("invalid cooldown or damage");
+		}
+		
 		this.name = name;
 		this.damage = damage;
 		this.type = type.toLowerCase();
