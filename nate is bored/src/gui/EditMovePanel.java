@@ -29,13 +29,13 @@ public class EditMovePanel extends JPanel {
 
         //create labels and text fields
         JLabel nameLabel = new JLabel("Name:");
-        JTextField nameField = new JTextField(10);
+        JTextField nameField = new JTextField(move.getName(), 10);
         JLabel typeLabel = new JLabel("Type:");
-        JTextField typeField = new JTextField(10);
+        JTextField typeField = new JTextField(move.getType(), 10);
         JLabel dmgLabel = new JLabel("Damage:");
-        JTextField dmgField = new JTextField(5);
+        JTextField dmgField = new JTextField(Integer.toString(move.getDamage()), 5);
         JLabel cdLabel = new JLabel("Cooldown:");
-        JTextField cdField = new JTextField(5);
+        JTextField cdField = new JTextField(Integer.toString(move.getCooldown()),5);
         JLabel success = new JLabel("");
         
         //create create button

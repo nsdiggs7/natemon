@@ -36,11 +36,11 @@ public class EditNatemonPanel extends JPanel {
 
         //create labels and text fields
         JLabel nameLabel = new JLabel("Name:");
-        JTextField nameField = new JTextField(10);
+        JTextField nameField = new JTextField(natemon.getName(), 10);
         JLabel typeLabel = new JLabel("Type:");
-        JTextField typeField = new JTextField(10);
+        JTextField typeField = new JTextField(natemon.getType(), 10);
         JLabel hpLabel = new JLabel("HP:");
-        JTextField hpField = new JTextField(5);
+        JTextField hpField = new JTextField(Integer.toString(natemon.getHp()), 5);
         JLabel success = new JLabel("");
         
         //create create button
