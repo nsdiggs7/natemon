@@ -76,6 +76,14 @@ public class NatemonGUI extends JFrame {
     		viewMovesPanel.display();
     	}
     	
+    	if(name.equals("CHOOSEEDITMOVE")) {
+    		chooseEditMovePanel.display();
+    	}
+    	
+    	if(name.equals("CHOOSEEDITNATEMON")) {
+    		chooseEditNatemonPanel.display();
+    	}
+    	
         cards.show(container, name);
     }
     
