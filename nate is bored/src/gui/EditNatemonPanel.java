@@ -28,17 +28,28 @@ public class EditNatemonPanel extends JPanel {
 	}
 	
 	public void display() {
+		removeAll();
+		
 		//add title
         add(gui.title("edit " + natemon.getName()), BorderLayout.NORTH);        
         
         //create form panel
         JPanel formPanel = new JPanel(new GridLayout(3, 2)); 
+        
+        //get types for type dropdown
+        Type[] types = Type.values();
 
         //create labels and text fields
         JLabel nameLabel = new JLabel("Name:");
         JTextField nameField = new JTextField(natemon.getName(), 10);
         JLabel typeLabel = new JLabel("Type:");
-        JTextField typeField = new JTextField(natemon.getType(), 10);
+        JComboBox typeField = new JComboBox(Type.values());
+        try {
+            typeField.setSelectedItem(Type.valueOf(natemon.getType()));
+        } catch (IllegalArgumentException ex) {
+            System.out.println("BAD TYPE VALUE: [" + natemon.getType() + "]");
+            ex.printStackTrace();
+        }
         JLabel hpLabel = new JLabel("HP:");
         JTextField hpField = new JTextField(Integer.toString(natemon.getHp()), 5);
         JLabel success = new JLabel("");
@@ -85,7 +96,7 @@ public class EditNatemonPanel extends JPanel {
         	
         	//get info from text fields
         	String name = nameField.getText().trim();
-        	String typeText = typeField.getText().trim().toLowerCase();
+        	String typeText = typeField.getSelectedItem().toString().trim().toLowerCase();
         	int hp;
         	
         	//create natemon
@@ -108,7 +119,7 @@ public class EditNatemonPanel extends JPanel {
         	
         	//reset text fields
         	nameField.setText("");
-        	typeField.setText("");
+        	typeField.setSelectedItem("");
         	hpField.setText("");
         	
         	//success test clears after 1.5 seconds
@@ -118,5 +129,7 @@ public class EditNatemonPanel extends JPanel {
         //back panel
         add(gui.backPanel("CHOOSEEDITNATEMON"), BorderLayout.SOUTH);
 		
+        revalidate();
+    	repaint();
 	}
 }

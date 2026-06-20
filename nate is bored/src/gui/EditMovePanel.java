@@ -21,17 +21,28 @@ public class EditMovePanel extends JPanel {
 	}
 	
 	public void display() {
+		removeAll();
+		
 		//add title
         add(gui.title("edit "+ move.getName()), BorderLayout.NORTH);        
         
         //create form panel
         JPanel formPanel = new JPanel(new GridLayout(4, 2)); 
+        
+        //get types for type dropdown
+        Type[] types = Type.values();
 
         //create labels and text fields
         JLabel nameLabel = new JLabel("Name:");
         JTextField nameField = new JTextField(move.getName(), 10);
         JLabel typeLabel = new JLabel("Type:");
-        JTextField typeField = new JTextField(move.getType(), 10);
+        JComboBox typeField = new JComboBox(Type.values());
+        try {
+            typeField.setSelectedItem(Type.valueOf(move.getType()));
+        } catch (IllegalArgumentException ex) {
+            System.out.println("BAD TYPE VALUE: [" + move.getType() + "]");
+            ex.printStackTrace();
+        }
         JLabel dmgLabel = new JLabel("Damage:");
         JTextField dmgField = new JTextField(Integer.toString(move.getDamage()), 5);
         JLabel cdLabel = new JLabel("Cooldown:");
@@ -81,7 +92,7 @@ public class EditMovePanel extends JPanel {
         createBtn.addActionListener(e -> {
         	//get info from text fields
         	String name = nameField.getText().trim();
-        	String typeText = typeField.getText().trim().toLowerCase();
+        	String typeText = typeField.getSelectedItem().toString().trim().toLowerCase();
         	int dmg, cd;
         	
         	//create move
@@ -91,8 +102,10 @@ public class EditMovePanel extends JPanel {
         		cd = Integer.parseInt(cdField.getText().trim());
         		Type type = Type.valueOf(typeText);
         		
-        		Move m = new Move(name, typeText, dmg, cd);
-        		NatemonRunner.moves.add(m);
+        		move.setName(name);
+        		move.setType(typeText);
+        		move.setDamage(dmg);
+        		move.setCd(cd);
         		
         		//write success
             	success.setText(name + " was edited!");
@@ -103,7 +116,7 @@ public class EditMovePanel extends JPanel {
         	
         	//reset text fields
         	nameField.setText("");
-        	typeField.setText("");
+        	typeField.setSelectedItem("");
         	dmgField.setText("");
         	cdField.setText("");
         	
@@ -113,5 +126,8 @@ public class EditMovePanel extends JPanel {
         
         //back panel
         add(gui.backPanel("CHOOSEEDITMOVE"), BorderLayout.SOUTH);
+        
+        revalidate();
+    	repaint();
 	}
 }

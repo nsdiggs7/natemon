@@ -1,6 +1,9 @@
 package gui;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.swing.*;
 import game.*;
 
@@ -16,12 +19,15 @@ private NatemonGUI gui;
         
         //create form panel
         JPanel formPanel = new JPanel(new GridLayout(4, 2)); 
+        
+        //get types for type dropdown
+        Type[] types = Type.values();
 
         //create labels and text fields
         JLabel nameLabel = new JLabel("Name:");
         JTextField nameField = new JTextField(10);
         JLabel typeLabel = new JLabel("Type:");
-        JTextField typeField = new JTextField(10);
+        JComboBox typeField = new JComboBox(types);
         JLabel dmgLabel = new JLabel("Damage:");
         JTextField dmgField = new JTextField(5);
         JLabel cdLabel = new JLabel("Cooldown:");
@@ -71,7 +77,7 @@ private NatemonGUI gui;
         createBtn.addActionListener(e -> {
         	//get info from text fields
         	String name = nameField.getText().trim();
-        	String typeText = typeField.getText().trim().toLowerCase();
+        	String typeText = typeField.getSelectedItem().toString().trim().toLowerCase();
         	int dmg, cd;
         	
         	//create move
@@ -93,7 +99,7 @@ private NatemonGUI gui;
         	
         	//reset text fields
         	nameField.setText("");
-        	typeField.setText("");
+        	typeField.setSelectedItem("");
         	dmgField.setText("");
         	cdField.setText("");
         	

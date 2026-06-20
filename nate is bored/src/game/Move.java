@@ -59,6 +59,7 @@ public class Move {
 	
 	public void setCd(int cd) {
 		cooldown = cd;
+		maxCooldown = cd;
 	}
 	
 	public String moveDescription() {
