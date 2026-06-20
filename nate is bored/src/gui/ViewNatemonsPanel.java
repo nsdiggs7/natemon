@@ -66,9 +66,7 @@ public class ViewNatemonsPanel extends JPanel {
         	
         	//to description
         	box.addMouseListener(new MouseAdapter() {
-        		public void mousePressed(MouseEvent e) {
-        	        System.out.println("pressed " + name);
-        	    }
+//        		gui.setScreen("NATEMONDESCRIPTION');
         	});
         	
         }
