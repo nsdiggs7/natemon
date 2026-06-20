@@ -54,10 +54,16 @@ public class Move {
 	}
 	
 	public void setDamage(int dmg) {
+		if (dmg <= 0) {
+			throw new IllegalArgumentException("non positive damage");
+		}
 		damage = dmg;
 	}
 	
 	public void setCd(int cd) {
+		if (cd <= 0) {
+			throw new IllegalArgumentException("non positive cooldown");
+		}
 		cooldown = cd;
 		maxCooldown = cd;
 	}
